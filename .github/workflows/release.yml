@@ -1,0 +1,44 @@
+name: Release Automática
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: '0'
+
+      - name: Calcular e Criar Tag (Semantic Versioning)
+        id: tag_version
+        uses: mathieudutour/github-tag-action@v6.1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          default_bump: patch
+          release_branches: main
+          custom_release_rules: |
+            feat: minor: ✨ Nova Funcionalidade
+            fix: patch: 🐛 Correção de Bug
+            docs: patch: 📚 Documentação
+            style: patch: 💎 Estilo
+            refactor: patch: 📦 Refatoração
+            perf: patch: 🚀 Performance
+            test: patch: 🚨 Testes
+            chore: patch: 🔧 Tarefas Técnicas
+
+      - name: Criar Release no GitHub
+        uses: ncipollo/release-action@v1
+        if: steps.tag_version.outputs.new_tag
+        with:
+          tag: ${{ steps.tag_version.outputs.new_tag }}
+          name: Release ${{ steps.tag_version.outputs.new_tag }}
+          body: ${{ steps.tag_version.outputs.changelog }}
+          token: ${{ secrets.GITHUB_TOKEN }}
