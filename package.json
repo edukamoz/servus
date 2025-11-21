@@ -4,9 +4,7 @@
   "main": "index.ts",
   "scripts": {
     "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web",
+    "build": "npx expo export -p web",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
