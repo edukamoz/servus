@@ -1,0 +1,10 @@
+<svg width="340" height="80" viewBox="0 0 340 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(0, 10) scale(0.12)">
+    <rect width="512" height="512" rx="128" fill="#172554"/>
+    <path d="M340 140 H220 C175.8 140 140 175.8 140 220 V250 H240 V240 C240 228.9 248.9 220 260 220 H340 V140 Z" fill="#3b82f6"/>
+    <path d="M172 372 H292 C336.2 372 372 336.2 372 292 V262 H272 V272 C272 283 263 292 252 292 H172 V372 Z" fill="#ffffff"/>
+    <circle cx="256" cy="256" r="32" fill="#16a34a"/>
+  </g>
+  <text x="75" y="54" font-family="Rajdhani, sans-serif" font-weight="700" font-size="48" fill="#172554" letter-spacing="1">SERVUS</text>
+  <circle cx="240" cy="48" r="5" fill="#16a34a"/>
+</svg>
